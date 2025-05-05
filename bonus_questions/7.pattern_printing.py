@@ -1,9 +1,10 @@
 def print_pattern():
-    try:
-        rows = int(input("Enter the number of rows: "))
+    rows = input("Enter the number of rows: ")
+    if rows.isdigit():
+        rows = int(rows)
         for i in range(1, rows + 1):
             print(str(i) * i)
-    except ValueError:
+    else:
         print("Please enter a valid integer.")
 
 print_pattern()

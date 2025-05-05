@@ -1,11 +1,9 @@
 def check_even_odd():
-    try:
-        number = int(input("Enter a number: "))
-        if number % 2 == 0:
-            print("EVEN")
-        else:
-            print("ODD")
-    except ValueError:
+    number = input("Enter a number: ")
+    if number.isdigit():
+        number = int(number)
+        print("EVEN" if number % 2 == 0 else "ODD")
+    else:
         print("Please enter a valid integer.")
 
 check_even_odd()
