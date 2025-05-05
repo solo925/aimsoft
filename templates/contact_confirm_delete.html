@@ -1,11 +1,13 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<h2>Confirm Delete</h2>
-<p>Are you sure you want to delete {{ contact.name }}?</p>
-<form method="post">
-    {% csrf_token %}
-    <button type="submit">Yes, delete</button>
-</form>
-<a href="{% url 'contact_detail' contact.pk %}">Cancel</a>
+<div class="container mt-4">
+    <h2 class="text-center text-danger">Confirm Delete</h2>
+    <p class="text-center">Are you sure you want to delete <strong>{{ contact.name }}</strong>?</p>
+    <form method="post" class="d-flex justify-content-center">
+        {% csrf_token %}
+        <button type="submit" class="btn btn-danger mr-2">Yes, delete</button>
+        <a href="{% url 'contact_detail' contact.pk %}" class="btn btn-secondary">Cancel</a>
+    </form>
+</div>
 {% endblock %}

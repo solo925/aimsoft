@@ -29,7 +29,7 @@ To install and run the project locally, follow these steps:
 
 1. Clone the repository:
     ```bash
-    git clone https://github.com/yourusername/aimsoft.git
+    git clone https://github.com/solo925/aimsoft
     ```
 
 2. Navigate to the project directory:

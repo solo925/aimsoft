@@ -12,6 +12,10 @@ https://docs.djangoproject.com/en/5.2/ref/settings/
 
 from pathlib import Path
 import os
+from dotenv import load_dotenv
+
+
+load_dotenv()
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -75,16 +79,19 @@ WSGI_APPLICATION = 'solomon.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/5.2/ref/settings/#databases
 
+# ... existing code ...
+
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'solomon',
-        'USER': 'solomon',
-        'PASSWORD': 'solo70',
-        'HOST': 'localhost',
-        'PORT': '5432',
+        'ENGINE': os.getenv('DATABASE_ENGINE') or 'django.db.backends.postgresql',
+        'NAME': os.getenv('DATABASE_NAME') or 'solomon',
+        'USER': os.getenv('DATABASE_USER') or 'solomon',
+        'PASSWORD': os.getenv('DATABASE_PASSWORD') or 'solo70',
+        'HOST': os.getenv('DATABASE_HOST') or 'localhost',
+        'PORT': os.getenv('DATABASE_PORT') or '5432',
     }
 }
+
 
 
 # Password validation
